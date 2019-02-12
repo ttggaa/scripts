@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>超好玩游戏盒子推送</title>
+</head>
+<body>
+
+    <!-- Mainly scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function push() {
+            $.ajax({
+                //url: "http://127.0.0.1:10400/gamebox_v2/web/push",
+                url: "https://xiaoyouxi.17tcw.com:10400/gamebox_v2/web/push",
+                method:'post',
+                ContentType:"application/json",
+                data:{'id':'key123456'},
+                success: function(result) {
+                    if (result.code == 0) {
+                        alert("推送成功")
+                    } else {
+                        str = JSON.stringify(result)
+                        alert("推送失败！" + str)
+                    }
+                }
+            });
+        }
+    </script>
+
+    <button type="button" onclick=push()>推送</button>
+</body>
+
+</html>
